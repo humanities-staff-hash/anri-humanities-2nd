@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANRI 人文奨学金 第2期 | ANRI Humanities Fellowship 2nd Cohort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-900: #0F1B2D;
+  --blue-800: #1A2D4A;
+  --blue-700: #1E3A5F;
+  --blue-600: #2B5389;
+  --blue-500: #3B6FB5;
+  --blue-400: #5B8FD0;
+  --blue-300: #8CB4E2;
+  --blue-200: #B8D4F0;
+  --blue-100: #DCE9F6;
+  --blue-50: #EFF5FB;
+  --gold-500: #B8962E;
+  --gold-400: #D4AF37;
+  --gold-300: #E8CC6E;
+  --gold-100: #FBF5E0;
+  --text-primary: #1A1A2E;
+  --text-secondary: #4A4A65;
+  --text-tertiary: #7A7A95;
+  --bg-primary: #FAFBFD;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #F3F6FA;
+  --border-color: #D6DDE8;
+  --border-light: #E8EDF4;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-ja: 'Noto Serif JP', serif;
+  --font-en: 'Source Serif 4', serif;
+  --font-zh: 'Noto Sans SC', sans-serif;
+  --max-w: 800px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg-primary); color: var(--text-primary);
+  font-family: var(--font-ja); font-size: 15px; line-height: 2; letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+body[data-lang="en"] { font-family: var(--font-en); }
+body[data-lang="zh"] { font-family: var(--font-zh); }
+
+body [lang="ja"], body [lang="en"], body [lang="zh"] { display: none; }
+body[data-lang="ja"] [lang="ja"] { display: block; }
+body[data-lang="en"] [lang="en"] { display: block; }
+body[data-lang="zh"] [lang="zh"] { display: block; }
+body[data-lang="ja"] span[lang="ja"],
+body[data-lang="en"] span[lang="en"],
+body[data-lang="zh"] span[lang="zh"] { display: inline; }
+
+.lang-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--blue-900);
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 0 24px; height: 40px;
+}
+.lang-bar button {
+  border: none; background: transparent;
+  color: rgba(255,255,255,0.55); font-size: 12.5px;
+  font-family: var(--font-en); font-weight: 600;
+  padding: 6px 12px; cursor: pointer;
+  letter-spacing: 0.08em; transition: color 0.2s;
+}
+.lang-bar button:hover { color: rgba(255,255,255,0.85); }
+.lang-bar button.active { color: #fff; }
+
+.hero {
+  background: linear-gradient(165deg, var(--blue-800) 0%, var(--blue-700) 40%, var(--blue-600) 100%);
+  color: #fff; padding: 100px 24px 64px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(59,111,181,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-logo { max-width: 260px; height: auto; margin-bottom: 28px; mix-blend-mode: screen; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5.5vw, 50px);
+  font-weight: 700; line-height: 1.3; margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: clamp(15px, 2.2vw, 18px);
+  font-weight: 400; opacity: 0.85; margin-bottom: 28px; letter-spacing: 0.1em; font-family: var(--font-display);
+}
+.hero-badge {
+  display: inline-block; border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 2px; padding: 10px 28px; font-size: 13px;
+  font-weight: 500; letter-spacing: 0.08em; font-family: var(--font-display);
+}
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+.section { padding: 56px 0; }
+.section + .section { border-top: 1px solid var(--border-light); }
+.sec-label {
+  font-family: var(--font-display); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue-400); margin-bottom: 8px; font-style: italic;
+}
+.sec-title { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.4; margin-bottom: 24px; letter-spacing: 0.03em; }
+
+.msg {
+  background: var(--bg-card); border-left: 3px solid var(--blue-500);
+  padding: 28px 32px; border-radius: 0 8px 8px 0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04); margin-bottom: 20px;
+}
+.msg p { margin-bottom: 16px; color: var(--text-secondary); line-height: 2.1; font-size: 14.5px; }
+.msg p:last-of-type { margin-bottom: 0; }
+.msg-author {
+  text-align: right; font-size: 13.5px;
+  color: var(--text-tertiary); margin-top: 14px; font-weight: 500;
+}
+
+.tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
+@media (max-width: 600px) { .tracks { grid-template-columns: 1fr; } }
+.track {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 10px; padding: 26px; position: relative; overflow: hidden;
+}
+.track::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.track.main::before { background: var(--blue-500); }
+.track.u25::before { background: var(--gold-400); }
+.track-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; padding: 3px 10px; border-radius: 3px; margin-bottom: 14px;
+}
+.track.main .track-tag { background: var(--blue-100); color: var(--blue-700); }
+.track.u25 .track-tag { background: var(--gold-100); color: var(--gold-500); }
+.track-name { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 14px; line-height: 1.3; letter-spacing: 0.02em; }
+.track-amt { font-size: 30px; font-weight: 900; margin-bottom: 4px; }
+.track.main .track-amt { color: var(--blue-600); }
+.track.u25 .track-amt { color: var(--gold-500); }
+.track-slots { font-size: 13.5px; color: var(--text-tertiary); margin-bottom: 14px; }
+.track-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+
+.checklist { list-style: none; margin-bottom: 20px; }
+.checklist li {
+  position: relative; padding: 10px 0 10px 26px;
+  border-bottom: 1px solid rgba(0,0,0,0.04); line-height: 1.85; font-size: 14.5px;
+}
+.checklist li::before {
+  content: '\2713'; position: absolute; left: 2px; top: 11px;
+  color: var(--blue-500); font-weight: 700; font-size: 13px;
+}
+
+.tl { position: relative; padding-left: 26px; margin-bottom: 20px; }
+.tl::before {
+  content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--blue-200);
+}
+.tl-item { position: relative; padding-bottom: 24px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: ''; position: absolute; left: -24px; top: 7px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--blue-500); border: 2px solid var(--bg-primary);
+}
+.tl-date { font-size: 13px; font-weight: 700; color: var(--blue-600); margin-bottom: 2px; }
+.tl-text { font-size: 14.5px; line-height: 1.7; }
+.tl-note { font-size: 12.5px; color: var(--text-tertiary); margin-top: 3px; }
+.tl-note.important { color: #C0392B; font-weight: 500; }
+
+.crit-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+@media (max-width: 600px) { .crit-grid { grid-template-columns: 1fr; } }
+.crit-card {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 8px; padding: 20px; text-align: center;
+}
+.crit-num {
+  font-family: var(--font-display); font-size: 26px;
+  font-weight: 700; color: var(--blue-500); margin-bottom: 6px;
+}
+.crit-text { font-size: 13.5px; line-height: 1.7; color: var(--text-secondary); }
+
+.persona-list { list-style: none; margin-bottom: 20px; }
+.persona-list li {
+  padding: 10px 0 10px 24px; position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 14.5px; line-height: 1.85; color: var(--text-secondary);
+}
+.persona-list li::before {
+  content: '\25CF'; position: absolute; left: 2px; top: 11px;
+  color: var(--blue-400); font-size: 8px;
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+  color: #fff; border-radius: 10px; padding: 36px; text-align: center; margin: 28px 0;
+}
+.cta h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.04em; }
+.cta p { font-size: 14px; opacity: 0.8; margin-bottom: 18px; line-height: 1.8; }
+.cta-btn {
+  display: inline-block; background: #fff; color: var(--blue-700);
+  padding: 12px 36px; border-radius: 6px; font-size: 15px;
+  font-weight: 700; text-decoration: none; letter-spacing: 0.03em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+.info-box {
+  background: var(--bg-card-alt); border-radius: 8px;
+  padding: 22px 26px; margin-bottom: 16px;
+}
+.info-box h4 { font-size: 14.5px; font-weight: 700; color: var(--blue-700); margin-bottom: 8px; }
+.info-box p, .info-box ul { font-size: 14px; color: var(--text-secondary); line-height: 1.85; }
+.info-box ul { list-style: disc; padding-left: 20px; }
+.info-box li { margin-bottom: 4px; }
+
+.warn-box {
+  background: #FDF6F0; border-left: 3px solid #E67E22;
+  border-radius: 0 8px 8px 0; padding: 22px 26px; margin-bottom: 16px;
+}
+.warn-box h4 { font-size: 14.5px; font-weight: 700; color: #D35400; margin-bottom: 8px; }
+.warn-box p, .warn-box ul { font-size: 14px; color: var(--text-secondary); line-height: 1.85; }
+.warn-box ul { list-style: disc; padding-left: 20px; }
+.warn-box li { margin-bottom: 4px; }
+
+.faq-item { border-bottom: 1px solid var(--border-light); padding: 18px 0; }
+.faq-q {
+  font-weight: 700; font-size: 14.5px; margin-bottom: 6px; color: var(--text-primary);
+}
+.faq-q::before {
+  content: 'Q.'; color: var(--blue-500); margin-right: 8px;
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; font-style: italic;
+}
+.faq-a {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.9; padding-left: 26px;
+}
+
+.footer {
+  text-align: center; padding: 40px 24px; font-size: 12.5px;
+  color: var(--text-tertiary); border-top: 1px solid var(--border-light); margin-top: 24px;
+}
+.footer a { color: var(--blue-500); text-decoration: none; }
+.footer p { font-family: var(--font-display); letter-spacing: 0.05em; }
+.act-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+@media (max-width: 600px) { .act-grid { grid-template-columns: 1fr !important; } }
+
+.note { font-size: 13px; color: var(--text-tertiary); line-height: 1.7; }
+.mt-s { margin-top: 10px; }
+.mb-s { margin-bottom: 10px; }
+strong { font-weight: 700; }
+
+@media print { .lang-bar { display: none; } .hero { padding-top: 32px; } }
+</style>
+</head>
+<body data-lang="ja">
+
+<div class="lang-bar">
+  <button class="active" onclick="switchLang('ja')">日本語</button>
+  <button onclick="switchLang('en')">English</button>
+  <button onclick="switchLang('zh')">中文</button>
+</div>
+
+<header class="hero">
+  <img src="logo.jpg" alt="ANRI" class="hero-logo">
+  <h1>
+    <span lang="ja">人文奨学金<br>未来を考える人文フェローシップ</span>
+    <span lang="en">Humanities Fellowship<br>for Thinking the Future</span>
+    <span lang="zh">人文奖学金<br>思考未来的人文奖学金</span>
+  </h1>
+  <p class="hero-sub">
+    <span lang="ja">第2期（2026–2027年度）募集要項</span>
+    <span lang="en">2nd Cohort (2026–2027) Call for Applications</span>
+    <span lang="zh">第二期（2026–2027年度）募集简章</span>
+  </p>
+  <div class="hero-badge">
+    <span lang="ja">応募期間：2026年 3月16日 – 5月30日</span>
+    <span lang="en">Application: March 16 – May 30, 2026</span>
+    <span lang="zh">申请期间：2026年3月16日 – 5月30日</span>
+  </div>
+</header>
+<div style="height:3px;background:linear-gradient(90deg,transparent,var(--blue-300),var(--blue-500),var(--blue-300),transparent);"></div>
+
+<div class="container">
+
+<!-- 趣旨 -->
+<section class="section">
+  <div class="sec-label">About</div>
+  <h2 class="sec-title">
+    <span lang="ja">趣旨</span><span lang="en">Purpose</span><span lang="zh">宗旨</span>
+  </h2>
+  <div class="msg">
+    <div lang="ja">
+      <p>ベンチャーキャピタル（VC）であるANRIは、「未来を創ろう、圧倒的な未来を（Make the Future AWESOME）」をミッションとして掲げ、技術革新や社会変革を目指す企業に投資を行ってきました。その実現のために、基礎科学研究のための給付型奨学金「The ANRI Fellowship」を7年前から開始し、理工系の基礎科学研究者の支援を微力ながらさせていただいております。</p>
+      <p>そのような支援をしていくなかで、昨今のテクノロジーが急速に進展する現代においてこそ、技術への投資と同時に「人間や社会に対する理解」を深化させることが不可欠であると業務を通じて実感するようになりました。</p>
+      <p>その観点から、人文系の研究は、社会をより良い方向へ導き未来を拓く重要な鍵を握っている可能性があると考え、従来の基礎科学研究のための奨学金だけでなく人文系研究のための奨学金も始めていく必要があると思い、この奨学金の募集を発表するに至りました。ANRI人文奨学金では、人文系研究がもたらす具体的な社会的インパクトを重視し、新たな視点から未来を考える／切り拓く問いを生む気概がある若手研究者を支援していきたいと考えております。</p>
+    </div>
+    <div lang="en">
+      <p>ANRI is a venture capital firm with the mission "Make the Future AWESOME," investing in companies driving technological innovation and social transformation. For seven years, we have supported basic science researchers through the ANRI Fellowship grant program.</p>
+      <p>Through these efforts, we have come to realize that in an era of rapid technological progress, deepening our understanding of humanity and society alongside technology investment is indispensable.</p>
+      <p>From this perspective, we believe humanities research holds the key to guiding society toward a better future. The ANRI Humanities Fellowship places emphasis on the concrete social impact of humanities research and supports young researchers who have the spirit to generate bold new questions about the future.</p>
+    </div>
+    <div lang="zh">
+      <p>ANRI是一家以"创造未来，创造压倒性的未来（Make the Future AWESOME）"为使命的风险投资公司，一直致力于投资推动技术创新和社会变革的企业。七年前，我们设立了给付型奖学金"The ANRI Fellowship"，支持理工科基础科学研究者。</p>
+      <p>在此过程中，我们深刻感受到，在技术飞速发展的当今时代，在投资技术的同时深化对"人类与社会的理解"不可或缺。</p>
+      <p>基于此，我们认为人文研究有可能成为引领社会走向更好未来的关键。ANRI人文奖学金重视人文研究带来的具体社会影响，支持有志于从全新视角思考和开拓未来的年轻研究者。</p>
+    </div>
+  </div>
+  <div class="msg" style="border-left-color: var(--blue-300); background: var(--blue-50);">
+    <div lang="ja">
+      <p>そうした時代の中で、立ち止まって考える力・ある種の遠回りする力の重要性を感じてきた。その文脈において、人文知というものが今後はより求められてくるのではないかと改めて思い始めている。「そもそも人間はどういうものなのか？」「社会／連帯ってなんのためにあるものだったのか？」そういった自らの足場を深く問い直す人文系の学問の知見・疑問を持つことを絶やさないことが、より良い未来の構築のために必要なのではないか。</p>
+      <p>今回のこの奨学金を通して、そういった"人間のこと・社会のこと"を考える若い研究者の応援を微力ながら行いたい。そのような立ち止まり問いを考える人々が今後の時代において、社会においてはより必要になってくる予感があるから。</p>
+      <div class="msg-author">ANRI シニアプリンシパル 中路隼輔</div>
+    </div>
+    <div lang="en">
+      <p>In this era, we feel the importance of the power to pause and think — a kind of willingness to take the longer path. In this context, we have come to believe that humanities knowledge will be increasingly needed. "What does it mean to be human?" "What is the purpose of society and solidarity?" Maintaining such fundamental questions from the humanities is essential for building a better future.</p>
+      <p>Through this fellowship, we hope to support young researchers who think about humanity and society. We sense that people who pause and consider such questions will become ever more necessary in the times ahead.</p>
+      <div class="msg-author">Shunsuke Nakaji, Senior Principal, ANRI</div>
+    </div>
+    <div lang="zh">
+      <p>在这个时代，我们感受到"停下脚步思考的力量"和"某种绕远路的能力"的重要性。在此背景下，我们开始重新认识到，人文知识在未来将变得更加不可或缺。"人类究竟是什么？""社会和团结究竟为何而存在？"——不断追问这些人文学科的根本命题，对于构建更美好的未来至关重要。</p>
+      <p>我们希望通过这项奖学金，微薄之力支持那些思考"人类与社会"的年轻研究者。因为我们预感到，那些停下来思考根本问题的人，在未来的时代和社会中将变得愈发重要。</p>
+      <div class="msg-author">ANRI 高级合伙人 中路隼輔</div>
+    </div>
+  </div>
+</section>
+
+<!-- 助成概要 -->
+<section class="section">
+  <div class="sec-label">Grant Overview</div>
+  <h2 class="sec-title">
+    <span lang="ja">助成概要</span><span lang="en">Grant Overview</span><span lang="zh">资助概要</span>
+  </h2>
+  <div class="tracks">
+    <div class="track main">
+      <div lang="ja">
+        <div class="track-tag">メイン枠</div>
+        <div class="track-name">人文フェローシップ</div>
+        <div class="track-amt">50万円<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /名</span></div>
+        <div class="track-slots">採択人数：最大 9 名</div>
+        <div class="track-desc">給付型・返還義務なし。資金使途は研究関連費・生活費を含め完全自由（領収書不要）。助成期間は採択より1年間。</div>
+      </div>
+      <div lang="en">
+        <div class="track-tag">Main Track</div>
+        <div class="track-name">Humanities Fellowship</div>
+        <div class="track-amt">¥500,000<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /person</span></div>
+        <div class="track-slots">Up to 9 fellows</div>
+        <div class="track-desc">Non-repayable grant. Funds may be used freely for research, living expenses, etc. (no receipts required). Grant period: 1 year from selection.</div>
+      </div>
+      <div lang="zh">
+        <div class="track-tag">主赛道</div>
+        <div class="track-name">人文奖学金</div>
+        <div class="track-amt">50万日元<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /人</span></div>
+        <div class="track-slots">最多录取 9 名</div>
+        <div class="track-desc">给付型，无需偿还。资金用途完全自由，包括研究费用和生活费（无需提供收据）。资助期限为录取后1年。</div>
+      </div>
+    </div>
+    <div class="track u25">
+      <div lang="ja">
+        <div class="track-tag">U25 チャレンジ枠（新設）</div>
+        <div class="track-name">U25チャレンジ<br>フェローシップ</div>
+        <div class="track-amt">10万円<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /名</span></div>
+        <div class="track-slots">採択人数：最大 5 名</div>
+        <div class="track-desc">25歳以下の若手研究者を対象とした新設枠。給付型・返還義務なし。資金使途は完全自由（領収書不要）。</div>
+      </div>
+      <div lang="en">
+        <div class="track-tag">U25 Challenge Track (New)</div>
+        <div class="track-name">U25 Challenge<br>Fellowship</div>
+        <div class="track-amt">¥100,000<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /person</span></div>
+        <div class="track-slots">Up to 5 fellows</div>
+        <div class="track-desc">New track for researchers aged 25 and under. Non-repayable. Funds may be used freely (no receipts required).</div>
+      </div>
+      <div lang="zh">
+        <div class="track-tag">U25 挑战名额（新设）</div>
+        <div class="track-name">U25挑战<br>奖学金</div>
+        <div class="track-amt">10万日元<span style="font-size:14px;font-weight:400;color:var(--text-tertiary)"> /人</span></div>
+        <div class="track-slots">最多录取 5 名</div>
+        <div class="track-desc">面向25岁以下年轻研究者的新设名额。给付型，无需偿还。资金用途完全自由。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 応募資格 -->
+<section class="section">
+  <div class="sec-label">Eligibility</div>
+  <h2 class="sec-title">
+    <span lang="ja">応募資格</span><span lang="en">Eligibility</span><span lang="zh">申请资格</span>
+  </h2>
+  <ul class="checklist">
+    <li lang="ja">人文系分野の研究に取り組む <strong>35歳以下</strong>（2026年5月30日時点）の大学院生、ポスドク、学部生、高校生、フリーランスの研究者。国籍や所属は問いません。</li>
+    <li lang="ja">狭義の人文学に限らず、政治学や社会学、経済学、その他融合領域なども含めて、<strong>広く人文社会系の研究</strong>が対象です。</li>
+    <li lang="ja">U25チャレンジ枠は <strong>25歳以下</strong>（2026年5月30日時点）が対象です。</li>
+    <li lang="ja">2026年8月7日（金）に開催予定の<strong>交流会に参加可能</strong>であること。</li>
+    <li lang="ja">ANRIの媒体（ポッドキャストやweb記事、ZINEなど）を通して、研究成果を発信していただけること。</li>
+    <li lang="ja">※ 一度のみの助成とし、同一・異なるテーマでも再申請は不可。ただし落選した場合には次年度以降、改めて応募が可能です。</li>
+    <li lang="en">Graduate students, postdocs, undergraduate students, high school students, or freelance researchers <strong>aged 35 or under</strong> (as of May 30, 2026) engaged in humanities research. No restrictions on nationality or affiliation.</li>
+    <li lang="en">Not limited to humanities in the narrow sense — <strong>broadly includes political science, sociology, economics, and interdisciplinary fields</strong>.</li>
+    <li lang="en">The U25 Challenge Track is for applicants <strong>aged 25 or under</strong> (as of May 30, 2026).</li>
+    <li lang="en">Must be <strong>available to attend the networking event</strong> on August 7, 2026 (Fri).</li>
+    <li lang="en">Fellows are expected to share research through ANRI's media channels (podcasts, web articles, zines, etc.).</li>
+    <li lang="en">※ One-time grant only; reapplication is not permitted. Unsuccessful applicants may reapply in subsequent years.</li>
+    <li lang="zh">从事人文领域研究的<strong>35岁以下</strong>（以2026年5月30日为准）的研究生、博士后、本科生、高中生或自由研究者。不限国籍和所属。</li>
+    <li lang="zh">不限于狭义人文学，<strong>广泛涵盖政治学、社会学、经济学及交叉领域</strong>。</li>
+    <li lang="zh">U25挑战名额面向<strong>25岁以下</strong>（以2026年5月30日为准）的申请者。</li>
+    <li lang="zh">须能参加2026年8月7日（周五）的<strong>交流会</strong>。</li>
+    <li lang="zh">录取者需通过ANRI媒体渠道（播客、网络文章、ZINE等）发布研究成果。</li>
+    <li lang="zh">※ 仅资助一次，不可再次申请。落选者可于次年重新申请。</li>
+  </ul>
+</section>
+
+<!-- 選考スケジュール -->
+<section class="section">
+  <div class="sec-label">Schedule</div>
+  <h2 class="sec-title">
+    <span lang="ja">選考スケジュール</span><span lang="en">Selection Schedule</span><span lang="zh">选拔日程</span>
+  </h2>
+  <div class="tl">
+    <div class="tl-item">
+      <div lang="ja"><div class="tl-date">2026年3月16日（月）</div><div class="tl-text">応募受付開始</div></div>
+      <div lang="en"><div class="tl-date">March 16, 2026 (Mon)</div><div class="tl-text">Applications open</div></div>
+      <div lang="zh"><div class="tl-date">2026年3月16日（周一）</div><div class="tl-text">开始接受申请</div></div>
+    </div>
+    <div class="tl-item">
+      <div lang="ja"><div class="tl-date">2026年5月30日（日）23:59 JST</div><div class="tl-text"><strong>応募締切</strong></div></div>
+      <div lang="en"><div class="tl-date">May 30, 2026 (Sun) 23:59 JST</div><div class="tl-text"><strong>Application deadline</strong></div></div>
+      <div lang="zh"><div class="tl-date">2026年5月30日（周日）23:59 JST</div><div class="tl-text"><strong>申请截止</strong></div></div>
+    </div>
+    <div class="tl-item">
+      <div lang="ja"><div class="tl-date">2026年6月30日まで</div><div class="tl-text">一次選考（書類審査）結果通知</div><div class="tl-note">※ メールにてご連絡いたします。</div></div>
+      <div lang="en"><div class="tl-date">By June 30, 2026</div><div class="tl-text">First round (document screening) results</div><div class="tl-note">Notification by email.</div></div>
+      <div lang="zh"><div class="tl-date">2026年6月30日前</div><div class="tl-text">第一轮（书面审查）结果通知</div><div class="tl-note">通过电子邮件通知。</div></div>
+    </div>
+    <div class="tl-item">
+      <div lang="ja"><div class="tl-date">2026年7月中</div><div class="tl-text">二次選考（Zoomによるオンライン面接）</div></div>
+      <div lang="en"><div class="tl-date">July 2026</div><div class="tl-text">Second round (online interview via Zoom)</div></div>
+      <div lang="zh"><div class="tl-date">2026年7月</div><div class="tl-text">第二轮（通过Zoom线上面试）</div></div>
+    </div>
+    <div class="tl-item">
+      <div lang="ja"><div class="tl-date">2026年8月7日（金）13:00–17:00</div><div class="tl-text"><strong>第1回 交流会</strong></div><div class="tl-note important">※ 採択者は必ずこの日程にご参加いただくことが条件です。各採択者には、自身の研究について10分程度のプレゼンを行なっていただきます。</div></div>
+      <div lang="en"><div class="tl-date">August 7, 2026 (Fri) 13:00–17:00</div><div class="tl-text"><strong>1st Networking Event</strong></div><div class="tl-note important">* Attendance is mandatory. Each fellow gives a ~10-min presentation.</div></div>
+      <div lang="zh"><div class="tl-date">2026年8月7日（周五）13:00–17:00</div><div class="tl-text"><strong>第一次交流会</strong></div><div class="tl-note important">※ 录取者必须参加。每位录取者须进行约10分钟的报告。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 選考基準 -->
+<section class="section">
+  <div class="sec-label">Criteria</div>
+  <h2 class="sec-title">
+    <span lang="ja">選考基準</span><span lang="en">Selection Criteria</span><span lang="zh">选拔标准</span>
+  </h2>
+  <ul class="checklist">
+    <li lang="ja"><strong>研究内容の具体性と社会・未来への影響力</strong>：あなたの研究が、社会や未来をどのように変革し、発展に貢献できるかについて具体的に示されていること</li>
+    <li lang="ja"><strong>従来の枠組みにとらわれない新たな発想と挑戦意欲</strong>：既存の学問領域や方法論に縛られず、独自の視点で問いを立て、探求する姿勢があること</li>
+    <li lang="ja"><strong>学問に対する真摯な姿勢</strong>：研究に対する誠実さと、知的探求への深い情熱を持っていること</li>
+    <li lang="en"><strong>Research specificity and societal impact</strong>: Concrete demonstration of how your research can transform and contribute to society and the future</li>
+    <li lang="en"><strong>Unconventional thinking and ambition</strong>: An approach that is not bound by existing academic fields or methodologies, with original perspectives and questions</li>
+    <li lang="en"><strong>Sincere commitment to scholarship</strong>: Integrity in research and deep passion for intellectual inquiry</li>
+    <li lang="zh"><strong>研究的具体性与对社会和未来的影响力</strong>：能够具体展示您的研究如何变革社会、为未来发展做出贡献</li>
+    <li lang="zh"><strong>不拘泥于传统框架的创新思维与挑战精神</strong>：不受既有学术领域和方法论束缚，以独特视角提出问题并进行探索</li>
+    <li lang="zh"><strong>对学术的诚挚态度</strong>：对研究的诚实态度和对知识探索的深厚热情</li>
+  </ul>
+</section>
+
+<!-- 求める人物像 -->
+<section class="section">
+  <div class="sec-label">Ideal Candidate</div>
+  <h2 class="sec-title">
+    <span lang="ja">求める人物像</span><span lang="en">Ideal Candidate</span><span lang="zh">理想人选</span>
+  </h2>
+  <ul class="persona-list">
+    <li lang="ja">自身の研究が社会や未来に及ぼす影響を明確に認識し、その意義を説明できる方</li>
+    <li lang="ja">研究成果を社会へ発信する意欲を持ち、他分野の人々と積極的に交流できる方</li>
+    <li lang="ja">異なる領域との対話を楽しみ、新たな視点や知見を柔軟に取り入れられる方</li>
+    <li lang="en">Those who clearly recognize the impact of their research on society and the future, and can articulate its significance</li>
+    <li lang="en">Those with the motivation to communicate research to society and actively engage with people from other fields</li>
+    <li lang="en">Those who enjoy dialogue across disciplines and can flexibly incorporate new perspectives</li>
+    <li lang="zh">能够清晰认识自身研究对社会和未来的影响并能阐述其意义的人</li>
+    <li lang="zh">有意愿向社会传播研究成果、积极与其他领域人士交流的人</li>
+    <li lang="zh">享受跨领域对话、能够灵活吸收新观点和知识的人</li>
+  </ul>
+</section>
+
+<!-- 応募方法 -->
+<section class="section">
+  <div class="sec-label">How to Apply</div>
+  <h2 class="sec-title">
+    <span lang="ja">応募方法</span><span lang="en">How to Apply</span><span lang="zh">申请方法</span>
+  </h2>
+  <div lang="ja">
+    <p class="mb-s">以下の応募フォーム（Googleフォーム）より必要事項をご記入のうえ、ご応募ください。</p>
+    <div class="info-box">
+      <h4>提出書類</h4>
+      <ul>
+        <li>研究タイトル、研究目的、研究の実施内容、研究状況、あなたの研究が社会や未来に与える影響を説明した申請書（応募フォーム内）</li>
+      </ul>
+    </div>
+  </div>
+  <div lang="en">
+    <p class="mb-s">Please submit your application via the Google Form linked below.</p>
+    <div class="info-box">
+      <h4>Required Documents</h4>
+      <ul>
+        <li>Application form: research title, purpose, implementation plan, current status, and impact on society/future</li>
+      </ul>
+    </div>
+  </div>
+  <div lang="zh">
+    <p class="mb-s">请通过以下Google表单提交申请。</p>
+    <div class="info-box">
+      <h4>提交材料</h4>
+      <ul>
+        <li>申请书（在表格内填写）：研究题目、目的、实施内容、研究现状、对社会和未来的影响</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cta">
+    <div lang="ja"><h3>応募はこちら</h3><p>応募締切：2026年5月30日（日）23:59（日本時間）</p></div>
+    <div lang="en"><h3>Apply Now</h3><p>Deadline: May 30, 2026 (Sun) 23:59 JST</p></div>
+    <div lang="zh"><h3>立即申请</h3><p>截止日期：2026年5月30日（周日）23:59（日本时间）</p></div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeW6rBetimuH3DOo6ae9EwxEPjNWoL6eri1KV4ntQ0Ychaw4g/viewform?usp=dialog" target="_blank" class="cta-btn">
+      <span lang="ja">応募フォームを開く →</span>
+      <span lang="en">Open Application Form →</span>
+      <span lang="zh">打开申请表格 →</span>
+    </a>
+  </div>
+</section>
+
+<!-- 採択者の義務 -->
+<section class="section">
+  <div class="sec-label">Obligations</div>
+  <h2 class="sec-title">
+    <span lang="ja">採択者の義務</span><span lang="en">Fellow Obligations</span><span lang="zh">录取者义务</span>
+  </h2>
+  <div class="info-box">
+    <div lang="ja">
+      <h4>交流会への参加</h4>
+      <p>採択者同士や奨学金関係者との交流を深める機会として、交流会を実施いたします。各採択者には、自身の研究について10分程度のプレゼンを行なっていただきます。</p>
+      <ul>
+        <li><strong>2026年8月7日（金）13:00–17:00</strong>：第1回交流会（参加必須）</li>
+        <li>2026年12月〜2027年1月頃：懇親会を企画（詳細は後日案内）</li>
+      </ul>
+    </div>
+    <div lang="en">
+      <h4>Networking Events</h4>
+      <p>Networking events are held for fellows and stakeholders. Each fellow presents ~10 minutes on their research.</p>
+      <ul>
+        <li><strong>August 7, 2026 (Fri) 13:00–17:00</strong>: 1st event (mandatory)</li>
+        <li>Dec 2026 – Jan 2027: Social gathering (details TBA)</li>
+      </ul>
+    </div>
+    <div lang="zh">
+      <h4>参加交流会</h4>
+      <p>为加深录取者之间及与奖学金相关人士的交流，将举办交流会。每位录取者须就自身研究进行约10分钟的报告。</p>
+      <ul>
+        <li><strong>2026年8月7日（周五）13:00–17:00</strong>：第一次交流会（必须参加）</li>
+        <li>2026年12月～2027年1月左右：恳亲会（详情另行通知）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="info-box">
+    <div lang="ja">
+      <h4>研究成果の発信</h4>
+      <p>ANRIの媒体（ポッドキャストやweb記事、ZINEなど）を通して、研究成果を発信していただきます。</p>
+    </div>
+    <div lang="en">
+      <h4>Research Dissemination</h4>
+      <p>Fellows share findings through ANRI media (podcasts, web articles, zines, etc.).</p>
+    </div>
+    <div lang="zh">
+      <h4>发布研究成果</h4>
+      <p>通过ANRI媒体渠道（播客、网络文章、ZINE等）发布研究成果。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 情報公開 -->
+<section class="section">
+  <div class="sec-label">Disclosure</div>
+  <h2 class="sec-title">
+    <span lang="ja">情報公開について</span><span lang="en">Information Disclosure</span><span lang="zh">信息公开</span>
+  </h2>
+  <div class="info-box">
+    <div lang="ja">
+      <p>当奨学金の広報や報告を目的として、採択者の氏名・所属・研究テーマ等を公表させていただく場合があります。</p>
+      <p>成果の要旨や概要などをメディアに掲載する場合は、事前に採択者と協議のうえ実施します。</p>
+    </div>
+    <div lang="en">
+      <p>For publicity and reporting purposes, we may publish fellows' names, affiliations, and research topics.</p>
+      <p>Any publication of research summaries will be done in consultation with the fellow.</p>
+    </div>
+    <div lang="zh">
+      <p>出于宣传和报告目的，可能会公布录取者的姓名、所属机构和研究主题。</p>
+      <p>如需在媒体上刊登研究摘要，将事先与录取者协商后进行。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 助成の中止・返還 -->
+<section class="section">
+  <div class="sec-label">Cancellation</div>
+  <h2 class="sec-title">
+    <span lang="ja">助成の中止・返還について</span><span lang="en">Grant Cancellation & Return</span><span lang="zh">资助中止与返还</span>
+  </h2>
+  <div class="warn-box">
+    <div lang="ja">
+      <h4>以下の場合、助成を中止または返還を求める可能性があります。</h4>
+      <ul>
+        <li>申請書類に重大な虚偽が含まれていたと認められる場合</li>
+        <li>長期間にわたり連絡が取れない場合</li>
+        <li>研究の遂行が著しく困難になった場合</li>
+        <li>他者の名誉や信用を著しく傷つける行為があった場合</li>
+        <li>他者の知的財産権や肖像権を侵害する行為があった場合</li>
+        <li>その他ANRIとの信頼関係を著しく損ねる行為が確認された場合</li>
+      </ul>
+    </div>
+    <div lang="en">
+      <h4>The grant may be suspended or returned in the following cases:</h4>
+      <ul>
+        <li>Significant falsehoods in application documents</li>
+        <li>Prolonged loss of contact</li>
+        <li>Research becomes significantly difficult to continue</li>
+        <li>Actions that seriously damage others' reputation or credibility</li>
+        <li>Infringement of others' intellectual property or portrait rights</li>
+        <li>Other actions that significantly undermine trust with ANRI</li>
+      </ul>
+    </div>
+    <div lang="zh">
+      <h4>在以下情况下，可能中止资助或要求返还：</h4>
+      <ul>
+        <li>申请材料被认定包含重大虚假信息</li>
+        <li>长期无法取得联系</li>
+        <li>研究推进显著困难</li>
+        <li>严重损害他人名誉或信用的行为</li>
+        <li>侵犯他人知识产权或肖像权的行为</li>
+        <li>其他严重损害与ANRI信赖关系的行为</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 第1期の活動 -->
+<section class="section">
+  <div class="sec-label">1st Cohort</div>
+  <h2 class="sec-title">
+    <span lang="ja">第1期の活動</span><span lang="en">1st Cohort Activities</span><span lang="zh">第一期活动</span>
+  </h2>
+  <div lang="ja">
+    <p class="mb-s">2025年度の第1期では、採択フェローによるポッドキャスト配信やZINE制作など、多様なアウトリーチ活動を行いました。</p>
+  </div>
+  <div lang="en">
+    <p class="mb-s">In the 1st cohort (2025), selected fellows engaged in various outreach activities including podcast episodes and ZINE production.</p>
+  </div>
+  <div lang="zh">
+    <p class="mb-s">在2025年度的第一期中，录取的研究者开展了播客节目和ZINE制作等多种宣传活动。</p>
+  </div>
+  <div class="act-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+    <a href="https://open.spotify.com/show/1WwiwIGpq3qJ63C4iVJHRL?si=f4086ce2661a4f78" target="_blank" class="act-card" style="display:block;background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:24px;text-decoration:none;color:inherit;transition:box-shadow 0.2s,transform 0.2s;">
+      <div style="font-size:28px;margin-bottom:10px;">🎧</div>
+      <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:6px;">
+        <span lang="ja">Podcast</span><span lang="en">Podcast</span><span lang="zh">播客</span>
+      </div>
+      <div style="font-size:13.5px;color:var(--text-tertiary);line-height:1.6;">
+        <span lang="ja">Spotifyで聴く →</span><span lang="en">Listen on Spotify →</span><span lang="zh">在Spotify收听 →</span>
+      </div>
+    </a>
+    <div style="display:block;background:var(--bg-card-alt);border:1px solid var(--border-light);border-radius:10px;padding:24px;color:inherit;">
+      <div style="font-size:28px;margin-bottom:10px;">📖</div>
+      <div style="font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:6px;">
+        <span lang="ja">人文ZINE</span><span lang="en">Humanities ZINE</span><span lang="zh">人文ZINE</span>
+      </div>
+      <div style="font-size:13.5px;color:var(--text-tertiary);line-height:1.6;">
+        <span lang="ja">PDF 準備中（近日公開）</span><span lang="en">PDF coming soon</span><span lang="zh">PDF准备中（即将发布）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="sec-label">FAQ</div>
+  <h2 class="sec-title">
+    <span lang="ja">よくある質問</span><span lang="en">FAQ</span><span lang="zh">常见问题</span>
+  </h2>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">フリーランスや高校生でも応募できますか？</div>
+    <div class="faq-a">はい、大学や研究機関に所属していない方でも、人文系の研究を本格的に進めている方であればご応募いただけます。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">助成金は本当に自由に使ってよいのでしょうか？</div>
+    <div class="faq-a">原則として用途を制限しておりません。領収書の提出も不要です。ただし学会参加費や渡航費、書籍購入など、研究活動に活かしていただくことを推奨いたします。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">選考方法はどのような形ですか？</div>
+    <div class="faq-a">書類選考とweb面接で選考を行います。採否はメールにてお知らせいたします。選考に関するフィードバックはございません。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">過去に同じテーマで応募して落選しました。再度応募できますか？</div>
+    <div class="faq-a">落選した場合は、次年度以降も再応募が可能です。一方で、一度採択された方は同一テーマ・異なるテーマを問わず再申請はできません。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">助成期間中に所属や立場が変わる可能性があります。どう対応すればよいですか？</div>
+    <div class="faq-a">研究継続に支障がなければ問題ございません。もし研究が継続できない状態になった場合は、お早めに事務局までご連絡ください。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">知的財産の扱いについて教えてください。</div>
+    <div class="faq-a">研究成果や知的財産権は原則として研究者本人に帰属いたします。ただし、当奨学金の広報や成果共有を目的として、研究テーマや概要の公開をお願いする場合があります。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">交流会や懇親会の具体的な日程はいつですか？</div>
+    <div class="faq-a">採択決定後の交流会は2026年8月7日（金）13:00–17:00、懇親会は2026年12月〜2027年1月頃を予定しています。正式な日時や会場は採択者に別途ご案内いたします。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">懇親会の参加は任意と書かれていますが、参加しなくても良いのでしょうか？</div>
+    <div class="faq-a">採択者およびANRI関係者との重要な交流の機会となりますので、やむを得ない事情が無い限りは出席をお願いいたします。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">現在、海外の大学に留学中なのですが、交流会や懇親会にオンラインで参加することは可能でしょうか。</div>
+    <div class="faq-a">第1回交流会（2026年8月7日）は<strong>必ず対面でご参加いただくことが応募条件</strong>です。なお、交流会出席にかかる航空券の負担はございません。国内交通費はご自身でのご負担となります。2回目以降の懇親会等については、遠方や海外在住などやむを得ない事情がある場合はオンラインでのご参加も可能です。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">応募フォームは英語で記入してもよいですか？</div>
+    <div class="faq-a">はい、英語でのご記入も可能です。応募フォームは日本語または英語のいずれでもご記入いただけます。言語による有利・不利はございませんので、ご自身の書きやすい言語をお選びください。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">応募後に申請内容や提出資料の修正・差し替えはできますか？</div>
+    <div class="faq-a">締切り前の再応募は可能です。ただし、公平な審査を行うため、締切後の申請書や提出資料の修正・差し替えは受け付けておりません。必ず提出前に十分ご確認ください。</div>
+  </div></div>
+
+  <div class="faq-item"><div lang="ja">
+    <div class="faq-q">それ以外の質問や相談はどこに問い合わせればいいですか？</div>
+    <div class="faq-a">下記のメールアドレス宛にお問い合わせください。</div>
+  </div></div>
+</section>
+
+<!-- お問い合わせ -->
+<section class="section">
+  <div class="sec-label">Contact</div>
+  <h2 class="sec-title">
+    <span lang="ja">お問い合わせ</span><span lang="en">Contact</span><span lang="zh">联系方式</span>
+  </h2>
+  <p>
+    <span lang="ja">ご質問・ご不明な点がございましたら、下記までご連絡ください。</span>
+    <span lang="en">If you have any questions, please contact us at:</span>
+    <span lang="zh">如有疑问，请通过以下方式联系：</span>
+  </p>
+  <p class="mt-s"><strong>Email：</strong><a href="mailto:humanities-staff@anri.vc" style="color:var(--blue-500)">humanities-staff@anri.vc</a></p>
+  <!-- メールアドレスを正しいものに修正してください -->
+</section>
+
+</div>
+
+<footer class="footer">
+  <p>&copy; 2026 ANRI Inc. All rights reserved.</p>
+  <p class="mt-s"><a href="https://anri.vc" target="_blank">anri.vc</a></p>
+</footer>
+
+<script>
+function switchLang(lang) {
+  document.body.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-bar button').forEach(btn => {
+    const map = { ja: '\u65E5\u672C\u8A9E', en: 'English', zh: '\u4E2D\u6587' };
+    btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
+  });
+}
+</script>
+</body>
+</html>
