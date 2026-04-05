@@ -10,7 +10,6 @@
   gtag('config', 'G-76MKKYJS4D');
 
   document.addEventListener('DOMContentLoaded', function() {
-    // 応募フォームボタンのクリック計測
     var formLinks = document.querySelectorAll('a[href*="docs.google.com/forms"]');
     formLinks.forEach(function(link) {
       link.addEventListener('click', function() {
@@ -21,7 +20,6 @@
       });
     });
 
-    // お問い合わせメールクリック計測
     var mailLinks = document.querySelectorAll('a[href^="mailto:"]');
     mailLinks.forEach(function(link) {
       link.addEventListener('click', function() {
@@ -40,16 +38,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue-900: #0F1B2D;
-  --blue-800: #1A2D4A;
-  --blue-700: #1E3A5F;
-  --blue-600: #2B5389;
-  --blue-500: #3B6FB5;
-  --blue-400: #5B8FD0;
-  --blue-300: #8CB4E2;
-  --blue-200: #B8D4F0;
-  --blue-100: #DCE9F6;
-  --blue-50: #EFF5FB;
+  --blue-900: #2D1B4E;
+  --blue-800: #3D2466;
+  --blue-700: #5B3A8C;
+  --blue-600: #7B4FA6;
+  --blue-500: #9B6DC4;
+  --blue-400: #B890D8;
+  --blue-300: #CDB4E8;
+  --blue-200: #E0CFF2;
+  --blue-100: #F2E8F8;
+  --blue-50: #F8F3FC;
   --gold-500: #B8962E;
   --gold-400: #D4AF37;
   --gold-300: #E8CC6E;
@@ -57,11 +55,11 @@
   --text-primary: #1A1A2E;
   --text-secondary: #4A4A65;
   --text-tertiary: #7A7A95;
-  --bg-primary: #FAFBFD;
+  --bg-primary: #F5F2EA;
   --bg-card: #FFFFFF;
-  --bg-card-alt: #F3F6FA;
-  --border-color: #D6DDE8;
-  --border-light: #E8EDF4;
+  --bg-card-alt: #EDE8DC;
+  --border-color: #D6CCE8;
+  --border-light: #E8E0F0;
   --font-display: 'Cormorant Garamond', serif;
   --font-ja: 'Noto Serif JP', serif;
   --font-en: 'Source Serif 4', serif;
@@ -102,17 +100,19 @@ body[data-lang="zh"] span[lang="zh"] { display: inline; }
 .lang-bar button.active { color: #fff; }
 
 .hero {
-  background: linear-gradient(165deg, var(--blue-800) 0%, var(--blue-700) 40%, var(--blue-600) 100%);
-  color: #fff; padding: 100px 24px 64px; text-align: center;
+  color: #fff; text-align: center;
   position: relative; overflow: hidden;
+  padding-top: 40px;
 }
-.hero::after {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 80%, rgba(59,111,181,0.2) 0%, transparent 50%);
-  pointer-events: none;
+.hero-main-img {
+  width: 100%; display: block;
+  max-height: 520px; object-fit: cover; object-position: center top;
 }
-.hero > * { position: relative; z-index: 1; }
+.hero-content {
+  background: linear-gradient(165deg, var(--blue-800) 0%, var(--blue-700) 40%, var(--blue-600) 100%);
+  padding: 32px 24px 48px;
+}
+.hero-content > * { position: relative; z-index: 1; }
 .hero-logo { max-width: 260px; height: auto; margin-bottom: 28px; mix-blend-mode: screen; }
 .hero h1 {
   font-family: var(--font-display);
@@ -293,6 +293,8 @@ strong { font-weight: 700; }
 </div>
 
 <header class="hero">
+  <img src="mikan_V1.jpg" alt="ANRI人文奨学金 未完の問い" class="hero-main-img">
+  <div class="hero-content">
   <img src="logo.jpg" alt="ANRI" class="hero-logo">
   <h1>
     <span lang="ja">人文奨学金<br>未来を考える人文フェローシップ</span>
@@ -308,6 +310,7 @@ strong { font-weight: 700; }
     <span lang="ja">応募期間：2026年 3月16日 – 5月30日</span>
     <span lang="en">Application: March 16 – May 30, 2026</span>
     <span lang="zh">申请期间：2026年3月16日 – 5月30日</span>
+  </div>
   </div>
 </header>
 <div style="height:3px;background:linear-gradient(90deg,transparent,var(--blue-300),var(--blue-500),var(--blue-300),transparent);"></div>
@@ -571,7 +574,7 @@ strong { font-weight: 700; }
     <div lang="ja"><h3>応募はこちら</h3><p>応募締切：2026年5月30日（日）23:59（日本時間）</p></div>
     <div lang="en"><h3>Apply Now</h3><p>Deadline: May 30, 2026 (Sun) 23:59 JST</p></div>
     <div lang="zh"><h3>立即申请</h3><p>截止日期：2026年5月30日（周日）23:59（日本时间）</p></div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeW6rBetimuH3DOo6ae9EwxEPjNWoL6eri1KV4ntQ0Ychaw4g/viewform?usp=dialog" target="_blank" class="cta-btn">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeW6rBetimuH3DOo6ae9EewxEPjNWoL6eri1KV4ntQ0Ychaw4g/viewform?usp=dialog" target="_blank" class="cta-btn">
       <span lang="ja">応募フォームを開く →</span>
       <span lang="en">Open Application Form →</span>
       <span lang="zh">打开申请表格 →</span>
@@ -809,7 +812,6 @@ strong { font-weight: 700; }
     <span lang="zh">如有疑问，请通过以下方式联系：</span>
   </p>
   <p class="mt-s"><strong>Email：</strong><a href="mailto:humanities-staff@anri.vc" style="color:var(--blue-500)">humanities-staff@anri.vc</a></p>
-  <!-- メールアドレスを正しいものに修正してください -->
 </section>
 
 </div>
