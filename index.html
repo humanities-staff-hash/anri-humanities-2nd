@@ -10,6 +10,7 @@
   gtag('config', 'G-76MKKYJS4D');
 
   document.addEventListener('DOMContentLoaded', function() {
+    // 応募フォームボタンのクリック計測
     var formLinks = document.querySelectorAll('a[href*="docs.google.com/forms"]');
     formLinks.forEach(function(link) {
       link.addEventListener('click', function() {
@@ -19,13 +20,23 @@
         });
       });
     });
-
+　　// お問い合わせメールクリック計測
     var mailLinks = document.querySelectorAll('a[href^="mailto:"]');
     mailLinks.forEach(function(link) {
       link.addEventListener('click', function() {
         gtag('event', 'contact_click', {
           'event_category': 'engagement',
           'event_label': 'メールお問い合わせクリック'
+        });
+      });
+    });
+     // Substackメールマガジン登録ボタンのクリック計測
+    var substackLinks = document.querySelectorAll('a[href*="substack.com"]');
+    substackLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        gtag('event', 'newsletter_click', {
+          'event_category': 'engagement',
+          'event_label': 'Substackメルマガ登録クリック'
         });
       });
     });
